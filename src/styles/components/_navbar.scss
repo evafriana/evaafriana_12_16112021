@@ -4,6 +4,11 @@
   align-items: center;
   background-color: $color-2;
   padding: 1rem 5rem 1rem 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 
   &__link {
     display: contents;
