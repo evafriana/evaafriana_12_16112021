@@ -1,0 +1,9 @@
+.logo {
+  display: flex;
+  align-items: center;
+
+  &__text {
+    color: $color-1;
+    padding-left: 0.5rem;
+  }
+}
