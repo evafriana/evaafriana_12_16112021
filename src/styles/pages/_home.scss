@@ -1,0 +1,60 @@
+.home {
+  display: flex;
+  align-items: center;
+
+  .surName {
+    color: $color-1;
+  }
+
+  &__text {
+    padding: 3rem 0;
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.75;
+    }
+  }
+
+  &__content {
+    padding: 3rem 5rem;
+    width: 100%;
+
+    .grid-container {
+      .bar {
+        grid-area: bar;
+      }
+      .line {
+        grid-area: line;
+      }
+      .radar {
+        grid-area: radar;
+      }
+      .radial {
+        grid-area: radial;
+      }
+      .cardOne {
+        grid-area: cardOne;
+      }
+      .cardTwo {
+        grid-area: cardTwo;
+      }
+      .cardThree {
+        grid-area: cardThree;
+      }
+      .cardFour {
+        grid-area: cardFour;
+      }
+
+      display: grid;
+      min-width: 85vw;
+      height: auto;
+      grid-template-areas:
+        "bar bar bar bar bar bar cardOne cardOne"
+        "bar bar bar bar bar bar cardTwo cardTwo"
+        "line line radar radar radial radial cardThree cardThree"
+        "line line radar radar radial radial cardFour cardFour";
+      grid-column-gap: 2rem;
+      grid-row-gap: 2rem;
+    }
+  }
+}

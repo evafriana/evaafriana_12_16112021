@@ -1,9 +1,9 @@
 import React from "react";
 import BarLink from "./BarLink";
-import link1 from "../assets/link1.png";
-import link2 from "../assets/link2.png";
-import link3 from "../assets/link3.png";
-import link4 from "../assets/link4.png";
+import link1 from "../../assets/link1.png";
+import link2 from "../../assets/link2.png";
+import link3 from "../../assets/link3.png";
+import link4 from "../../assets/link4.png";
 
 export default function SideBar() {
   return (

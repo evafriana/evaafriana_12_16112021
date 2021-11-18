@@ -6,7 +6,7 @@ $font-1: "Roboto", sans-serif;
 /* color */
 $color-1: #ff0000;
 $color-2: #020203;
-$color-3: #74798c;
+$color-3: #fbfbfb;
 $color-4: #fff;
 
 /* media query */
@@ -23,10 +23,11 @@ $border-radius: 10px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 body {
   margin: auto;
-  // max-width: 1296px;
+  min-width: 1296px;
   background-color: $color-4;
 }
 li {

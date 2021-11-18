@@ -1,6 +1,14 @@
 @import "./setting";
 
-@import "./components/logo";
-@import "./components/navbar";
-@import "./components/sideBar";
-@import "./components/barLink";
+@import "./components/navbar/logo";
+@import "./components/navbar/navbar";
+@import "./components/sidebar/barLink";
+@import "./components/sidebar/sideBar";
+
+@import "./components/charts/barChart";
+@import "./components/charts/lineChart";
+@import "./components/charts/radarChart";
+@import "./components/charts/RadialBarChart";
+@import "./components/charts/cardInfo";
+
+@import "./pages/home";
