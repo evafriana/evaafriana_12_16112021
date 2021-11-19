@@ -5,10 +5,10 @@
 @import "./components/sidebar/barLink";
 @import "./components/sidebar/sideBar";
 
-@import "./components/charts/barChart";
-@import "./components/charts/lineChart";
-@import "./components/charts/radarChart";
-@import "./components/charts/RadialBarChart";
+@import "./components/charts/chartBar";
+@import "./components/charts/chartLine";
+@import "./components/charts/chartRadar";
+@import "./components/charts/ChartRadialBar";
 @import "./components/charts/cardInfo";
 
 @import "./pages/home";

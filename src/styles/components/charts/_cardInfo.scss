@@ -4,4 +4,17 @@
   background: $color-3;
   border-radius: $border-radius;
   padding: 1rem;
+  display: flex;
+
+  &__content {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      padding: 0 3rem;
+    }
+    .text {
+      padding: 0 3rem;
+    }
+  }
 }
