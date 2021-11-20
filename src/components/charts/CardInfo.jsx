@@ -1,7 +1,8 @@
 import React from "react";
 import logo from "../../assets/logo.png";
+import PropTypes from "prop-types";
 
-export default function CardInfo() {
+const CardInfo = (props) => {
   return (
     <div className="cardinfo">
       <div className="cardinfo__content">
@@ -9,10 +10,16 @@ export default function CardInfo() {
           <img src={logo} alt="" />
         </div>
         <div className="text">
-          <h1>1930</h1>
+          <h1>{props.cal}</h1>
           <p>calories</p>
         </div>
       </div>
     </div>
   );
-}
+};
+
+CardInfo.propTypes = {
+  cal: PropTypes.string,
+};
+
+export default CardInfo;

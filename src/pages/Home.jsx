@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ChartBar from "../components/charts/ChartBar";
 import ChartLine from "../components/charts/ChartLine";
 import ChartRadar from "../components/charts/ChartRadar";
@@ -9,29 +10,40 @@ import Navbar from "../components/navbar/Navbar";
 import SideBar from "../components/sidebar/SideBar";
 import useAxios from "../hooks/useAxios";
 
-const USER_ID = 12;
-
 export default function Home() {
   const [userName, setUserName] = useState("");
+  const [userActivity, setUserActivity] = useState("");
 
-  const { response, error, loading } = useAxios({
-    endpoint: `user/${USER_ID}`,
+  let { id } = useParams();
+
+  const responseUser = useAxios({
+    endpoint: `user/${id}`,
+    method: "get",
+  });
+
+  const responseActivity = useAxios({
+    endpoint: `user/${id}/activity`,
     method: "get",
   });
 
   useEffect(() => {
-    const name = response?.data?.userInfos?.firstName;
+    const name = responseUser?.response?.data?.userInfos?.firstName;
     setUserName(name);
-  }, [response]);
+  }, [responseUser]);
+
+  useEffect(() => {
+    const sessions = responseActivity?.response?.data?.sessions;
+    setUserActivity(sessions);
+  }, [responseActivity]);
 
   return (
     <div className="home">
       <SideBar />
       <Navbar />
-      {loading ? (
+      {responseUser.loading ? (
         <div>loading...</div>
-      ) : error ? (
-        <div>{error}</div>
+      ) : responseUser.error ? (
+        <div>{responseUser.error}</div>
       ) : (
         <section className="home__content">
           <div className="home__text">
@@ -42,7 +54,11 @@ export default function Home() {
           </div>
           <div className="grid-container">
             <div className="bar">
-              <ChartBar />
+              <ChartBar
+                userActivity={userActivity}
+                loading={responseActivity.loading}
+                error={responseActivity.error}
+              />
             </div>
             <div className="line">
               <ChartLine />
@@ -54,16 +70,16 @@ export default function Home() {
               <ChartRadialBar />
             </div>
             <div className="cardOne">
-              <CardInfo />
+              <CardInfo cal="26" />
             </div>
             <div className="cardTwo">
-              <CardInfo />
+              <CardInfo cal="27" />
             </div>
             <div className="cardThree">
-              <CardInfo />
+              <CardInfo cal="28" />
             </div>
             <div className="cardFour">
-              <CardInfo />
+              <CardInfo cal="29" />
             </div>
           </div>
         </section>
