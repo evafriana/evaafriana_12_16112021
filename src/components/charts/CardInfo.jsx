@@ -1,17 +1,14 @@
 import React from "react";
-import logo from "../../assets/logo.png";
 import PropTypes from "prop-types";
 
 const CardInfo = (props) => {
   return (
     <div className="cardinfo">
       <div className="cardinfo__content">
-        <div className="icon">
-          <img src={logo} alt="" />
-        </div>
+        <img src={props.icon} alt="" />
         <div className="text">
-          <h1>{props.cal}</h1>
-          <p>calories</p>
+          <h1>{props.value}</h1>
+          <p>{props.kind}</p>
         </div>
       </div>
     </div>
@@ -19,7 +16,8 @@ const CardInfo = (props) => {
 };
 
 CardInfo.propTypes = {
-  cal: PropTypes.string,
+  value: PropTypes.string,
+  kind: PropTypes.string,
 };
 
 export default CardInfo;

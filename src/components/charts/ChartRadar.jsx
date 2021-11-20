@@ -7,13 +7,12 @@ import {
   PolarRadiusAxis,
   ResponsiveContainer,
 } from "recharts";
-import Data from "../../service/Data.json";
 
 export default function ChartRadar() {
   return (
     <div className="chartradar">
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={Data}>
+        <RadarChart cx="50%" cy="50%" outerRadius="80%">
           <PolarGrid />
           <PolarAngleAxis dataKey="subject" />
           <PolarRadiusAxis />

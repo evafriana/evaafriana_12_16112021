@@ -1,6 +1,5 @@
 import React from "react";
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
-import Data from "../../service/Data.json";
 
 export default function ChartLine() {
   return (
@@ -10,7 +9,6 @@ export default function ChartLine() {
         <LineChart
           width={500}
           height={300}
-          data={Data}
           margin={{
             top: 5,
             right: 30,

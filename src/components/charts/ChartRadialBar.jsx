@@ -5,7 +5,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import Data from "../../service/Data.json";
 
 export default function ChartRadialBar() {
   return (
@@ -18,7 +17,6 @@ export default function ChartRadialBar() {
           innerRadius="10%"
           outerRadius="80%"
           barSize={10}
-          data={Data}
         >
           <RadialBar
             minAngle={15}

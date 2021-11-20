@@ -10,8 +10,19 @@ import Navbar from "../components/navbar/Navbar";
 import SideBar from "../components/sidebar/SideBar";
 import useAxios from "../hooks/useAxios";
 
+import caloriesIcon from "../assets/caloriesIcon.png";
+import proteinIcon from "../assets/proteinIcon.png";
+import fatIcon from "../assets/fatIcon.png";
+import carbsIcon from "../assets/carbsIcon.png";
+
 export default function Home() {
   const [userName, setUserName] = useState("");
+  const [keyData, setKeyData] = useState({
+    calorieCount: 0,
+    proteinCount: 0,
+    carbohydrateCount: 0,
+    lipidCount: 0,
+  });
   const [userActivity, setUserActivity] = useState("");
 
   let { id } = useParams();
@@ -29,6 +40,9 @@ export default function Home() {
   useEffect(() => {
     const name = responseUser?.response?.data?.userInfos?.firstName;
     setUserName(name);
+
+    const keyData = responseUser?.response?.data?.keyData;
+    setKeyData(keyData);
   }, [responseUser]);
 
   useEffect(() => {
@@ -70,16 +84,32 @@ export default function Home() {
               <ChartRadialBar />
             </div>
             <div className="cardOne">
-              <CardInfo cal="26" />
+              <CardInfo
+                value={keyData?.calorieCount?.toString() + "kCal"}
+                kind="Calories"
+                icon={caloriesIcon}
+              />
             </div>
             <div className="cardTwo">
-              <CardInfo cal="27" />
+              <CardInfo
+                value={keyData.proteinCount?.toString() + "g"}
+                kind="Protein"
+                icon={proteinIcon}
+              />
             </div>
             <div className="cardThree">
-              <CardInfo cal="28" />
+              <CardInfo
+                value={keyData.carbohydrateCount?.toString() + "g"}
+                kind="Glucides"
+                icon={fatIcon}
+              />
             </div>
             <div className="cardFour">
-              <CardInfo cal="29" />
+              <CardInfo
+                value={keyData.lipidCount?.toString() + "g"}
+                kind="Lipides"
+                icon={carbsIcon}
+              />
             </div>
           </div>
         </section>
