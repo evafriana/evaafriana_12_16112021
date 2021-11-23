@@ -25,6 +25,7 @@ export default function Home() {
   });
   const [userActivity, setUserActivity] = useState("");
   const [userAverageSessions, setUserAverageSessions] = useState("");
+  const [userPerformance, setUserPerformance] = useState("");
 
   let { id } = useParams();
 
@@ -40,6 +41,11 @@ export default function Home() {
 
   const responseAverageSessions = useAxios({
     endpoint: `user/${id}/average-sessions`,
+    method: "get",
+  });
+
+  const responsePerformance = useAxios({
+    endpoint: `user/${id}/performance`,
     method: "get",
   });
 
@@ -60,6 +66,11 @@ export default function Home() {
     const averageSessions = responseAverageSessions?.response?.data?.sessions;
     setUserAverageSessions(averageSessions);
   }, [responseAverageSessions]);
+
+  useEffect(() => {
+    const performance = responsePerformance?.response?.data;
+    setUserPerformance(performance);
+  }, [responsePerformance]);
 
   return (
     <div className="home">
@@ -85,7 +96,7 @@ export default function Home() {
               <ChartLine userAverageSessions={userAverageSessions} />
             </div>
             <div className="radar">
-              <ChartRadar />
+              <ChartRadar userPerformance={userPerformance} />
             </div>
             <div className="radial">
               <ChartRadialBar />
