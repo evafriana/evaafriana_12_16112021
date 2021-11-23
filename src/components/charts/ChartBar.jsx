@@ -40,16 +40,15 @@ const ChartBar = (props) => {
             data={props.userActivity}
             margin={{
               top: 5,
-              right: 30,
               left: 20,
               bottom: 3,
             }}
-            barCategoryGap={40}
+            barCategoryGap={50}
             barGap={5}
           >
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
             <XAxis
-              dataKey=""
+              dataKey="day"
               tickLine={false}
               tick={{ fontSize: 14, fill: "#74798c" }}
               dy={15}
@@ -58,8 +57,6 @@ const ChartBar = (props) => {
               dataKey="kilogram"
               yAxisId="left"
               orientation="right"
-              interval="number"
-              allowDecimals={false}
               tickLine={false}
               axisLine={false}
               tick={{ fontSize: 14, fill: "#74798c" }}
@@ -73,17 +70,20 @@ const ChartBar = (props) => {
               hide={true}
             />
             <Tooltip
-              wrapperStyle={{ backgroundColor: "red" }}
-              itemStyle={{ color: "#ff0000" }}
-              formatter={function (value) {
-                return `${value}`;
+              contentStyle={{
+                backgroundColor: "#E60000",
+                border: "0",
+              }}
+              itemStyle={{ color: "#fff" }}
+              formatter={function (values) {
+                return `${values}`;
               }}
               labelFormatter={function () {
                 return ``;
               }}
             />
             <Bar dataKey="kilogram" fill="#282d30" radius={[50, 50, 0, 0]} />
-            <Bar dataKey="calories" fill="#ff0000" radius={[50, 50, 0, 0]} />
+            <Bar dataKey="calories" fill="#E60000" radius={[50, 50, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       )}
@@ -92,9 +92,7 @@ const ChartBar = (props) => {
 };
 
 ChartBar.propTypes = {
-  userActivity: PropTypes.object,
-  loading: PropTypes.bool,
-  error: PropTypes.string,
+  userActivity: PropTypes.array,
 };
 
 export default ChartBar;

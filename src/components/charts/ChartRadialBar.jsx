@@ -1,16 +1,16 @@
 import React from "react";
-import {
-  RadialBarChart,
-  RadialBar,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+// import {
+//   RadialBarChart,
+//   RadialBar,
+//   Legend,
+//   ResponsiveContainer,
+// } from "recharts";
 
 export default function ChartRadialBar() {
   return (
     <div className="chartradialbar">
       <p>Score</p>
-      <ResponsiveContainer width="100%" height="100%">
+      {/* <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart
           cx="50%"
           cy="50%"
@@ -27,7 +27,7 @@ export default function ChartRadialBar() {
           />
           <Legend iconSize={10} layout="vertical" verticalAlign="middle" />
         </RadialBarChart>
-      </ResponsiveContainer>
+      </ResponsiveContainer> */}
     </div>
   );
 }

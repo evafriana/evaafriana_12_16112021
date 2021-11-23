@@ -1,31 +1,54 @@
 import React from "react";
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
+import PropTypes from "prop-types";
 
-export default function ChartLine() {
+const ChartLine = (props) => {
   return (
     <div className="chartline">
-      <p>Durée moyenne des sessions</p>
+      <p className="chartLine__text">Durée moyenne des sessions</p>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          width={500}
-          height={300}
+          data={props.userAverageSessions}
           margin={{
             top: 5,
-            right: 30,
-            left: 20,
+            right: 10,
+            left: 10,
             bottom: 5,
           }}
         >
           <XAxis
-            dataKey="name"
-            stroke="rgba(255, 255, 255, 0.6)"
+            dataKey="day"
             axisLine={false}
             tickLine={false}
+            stroke="#fbfbfb"
           />
-          <Tooltip />
-          <Line type="monotone" dataKey="pv" stroke="#fff" />
+          <Tooltip
+            itemStyle={{ color: "#E60000" }}
+            formatter={function (value) {
+              return `${value} min`;
+            }}
+            labelFormatter={function (value) {
+              return ``;
+            }}
+          />
+          <Line
+            type="monotone"
+            dataKey="sessionLength"
+            stroke="#fbfbfb"
+            dot={{
+              r: 0,
+              fill: "",
+            }}
+            activeDot={{ r: 4 }}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
-}
+};
+
+ChartLine.propTypes = {
+  userActivity: PropTypes.object,
+};
+
+export default ChartLine;
