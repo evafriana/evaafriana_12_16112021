@@ -7,10 +7,18 @@ export default function Navbar() {
     <nav className="navbar">
       <Logo />
       <div className="navbar__link">
-        <NavLink to="/">Accueil</NavLink>
-        <NavLink to="/">profil</NavLink>
-        <NavLink to="/">Réglage</NavLink>
-        <NavLink to="/">Communauté</NavLink>
+        <NavLink to="/" onClick={(e) => e.preventDefault()}>
+          Accueil
+        </NavLink>
+        <NavLink to="/" onClick={(e) => e.preventDefault()}>
+          profil
+        </NavLink>
+        <NavLink to="/" onClick={(e) => e.preventDefault()}>
+          Réglage
+        </NavLink>
+        <NavLink to="/" onClick={(e) => e.preventDefault()}>
+          Communauté
+        </NavLink>
       </div>
     </nav>
   );

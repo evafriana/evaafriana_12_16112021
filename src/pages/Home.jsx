@@ -23,6 +23,8 @@ export default function Home() {
     carbohydrateCount: 0,
     lipidCount: 0,
   });
+  const [userScore, setUserScore] = useState("");
+
   const [userActivity, setUserActivity] = useState("");
   const [userAverageSessions, setUserAverageSessions] = useState("");
   const [userPerformance, setUserPerformance] = useState("");
@@ -50,11 +52,16 @@ export default function Home() {
   });
 
   useEffect(() => {
-    const name = responseUser?.response?.data?.userInfos?.firstName;
+    const res = responseUser?.response?.data;
+
+    const name = res?.userInfos?.firstName;
     setUserName(name);
 
-    const keyData = responseUser?.response?.data?.keyData;
+    const keyData = res?.keyData;
     setKeyData(keyData);
+
+    const score = res?.score || res?.todayScore;
+    setUserScore(score);
   }, [responseUser]);
 
   useEffect(() => {
@@ -77,7 +84,15 @@ export default function Home() {
       <SideBar />
       <Navbar />
       {responseUser.loading ? (
-        <div>loading...</div>
+        <h2
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+          }}
+        >
+          loading...
+        </h2>
       ) : responseUser.error ? (
         <div>{responseUser.error}</div>
       ) : (
@@ -99,7 +114,7 @@ export default function Home() {
               <ChartRadar userPerformance={userPerformance} />
             </div>
             <div className="radial">
-              <ChartRadialBar />
+              <ChartRadialBar userScore={userScore} />
             </div>
             <div className="cardOne">
               <CardInfo

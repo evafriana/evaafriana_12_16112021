@@ -1,33 +1,48 @@
 import React from "react";
-// import {
-//   RadialBarChart,
-//   RadialBar,
-//   Legend,
-//   ResponsiveContainer,
-// } from "recharts";
+import { PieChart, Pie, ResponsiveContainer, Label, Cell } from "recharts";
 
-export default function ChartRadialBar() {
+const COLORS = ["#E60000", "#fff"];
+
+const ChartRadialBar = ({ userScore = 0 }) => {
+  const data = [
+    {
+      value: userScore,
+    },
+    { value: 1 - userScore },
+  ];
+
   return (
-    <div className="chartradialbar">
-      <p>Score</p>
-      {/* <ResponsiveContainer width="100%" height="100%">
-        <RadialBarChart
-          cx="50%"
-          cy="50%"
-          innerRadius="10%"
-          outerRadius="80%"
-          barSize={10}
-        >
-          <RadialBar
-            minAngle={15}
-            background
-            clockWise
-            dataKey="uv"
-            fill="#ff0000"
-          />
-          <Legend iconSize={10} layout="vertical" verticalAlign="middle" />
-        </RadialBarChart>
-      </ResponsiveContainer> */}
+    <div className="chartradialbar" width="100%" height="100%">
+      <p>Score </p>
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart width={400} height={400}>
+          <Pie
+            data={data}
+            cx="50%"
+            cy="50%"
+            innerRadius={80}
+            outerRadius={100}
+            startAngle={90}
+            endAngle={450}
+            fill="#8884d8"
+            dataKey="value"
+            textAnchor="tyt"
+          >
+            {data.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+                cornerRadius="50%"
+              />
+            ))}
+            <Label width={30} position="center">
+              {`${userScore * 100}% de votre objective`}
+            </Label>
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
     </div>
   );
-}
+};
+
+export default ChartRadialBar;

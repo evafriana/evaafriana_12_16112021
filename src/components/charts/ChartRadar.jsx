@@ -39,8 +39,7 @@ const ChartRadar = (props) => {
 };
 
 ChartRadar.propTypes = {
-  subject: PropTypes.string,
-  value: PropTypes.number,
+  data: PropTypes.array,
 };
 
 export default ChartRadar;
