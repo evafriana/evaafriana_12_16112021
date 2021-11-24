@@ -1,6 +1,10 @@
 .home {
   display: flex;
   align-items: center;
+  margin-left: 10rem;
+  margin-top: 2rem;
+  height: 100%;
+  padding: 3rem 4rem;
 
   .surName {
     color: $color-1;
@@ -16,45 +20,52 @@
   }
 
   &__content {
-    padding: 3rem 5rem;
     width: 100%;
 
-    .grid-container {
-      .bar {
-        grid-area: bar;
-      }
-      .line {
-        grid-area: line;
-      }
-      .radar {
-        grid-area: radar;
-      }
-      .radial {
-        grid-area: radial;
-      }
-      .cardOne {
-        grid-area: cardOne;
-      }
-      .cardTwo {
-        grid-area: cardTwo;
-      }
-      .cardThree {
-        grid-area: cardThree;
-      }
-      .cardFour {
-        grid-area: cardFour;
+    .chartSection {
+      display: grid;
+      gap: 2rem;
+
+      @media screen and (min-width: map-get($breakpoints, large-tablet)) {
+        grid-template-columns: 100%;
       }
 
-      display: grid;
-      min-width: 85vw;
-      height: auto;
-      grid-template-areas:
-        "bar bar bar bar bar bar cardOne cardOne"
-        "bar bar bar bar bar bar cardTwo cardTwo"
-        "line line radar radar radial radial cardThree cardThree"
-        "line line radar radar radial radial cardFour cardFour";
-      grid-column-gap: 2rem;
-      grid-row-gap: 2rem;
+      @media screen and (min-width: map-get($breakpoints, desktop)) {
+        grid-template-columns: 75% auto;
+      }
+
+      .articleOne {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 2rem;
+
+        .bar {
+          grid-column: 1 / span 3;
+          grid-row: 1;
+        }
+        .line {
+          grid-column: 1;
+          grid-row: 2;
+        }
+        .radar {
+          grid-column: 2;
+          grid-row: 2;
+        }
+        .radial {
+          grid-column: 3;
+          grid-row: 2;
+        }
+      }
+      .articleTwo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2rem;
+
+        @media screen and (min-width: map-get($breakpoints, desktop)) {
+          grid-template-columns: 1fr;
+        }
+      }
     }
   }
 }

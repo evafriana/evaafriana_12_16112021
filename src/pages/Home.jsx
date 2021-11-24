@@ -103,48 +103,44 @@ export default function Home() {
             </h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           </div>
-          <div className="grid-container">
-            <div className="bar">
-              <ChartBar userActivity={userActivity} />
-            </div>
-            <div className="line">
-              <ChartLine userAverageSessions={userAverageSessions} />
-            </div>
-            <div className="radar">
-              <ChartRadar userPerformance={userPerformance} />
-            </div>
-            <div className="radial">
-              <ChartRadialBar userScore={userScore} />
-            </div>
-            <div className="cardOne">
+          <section className="chartSection">
+            <article className="articleOne">
+              <div className="bar">
+                <ChartBar userActivity={userActivity} />
+              </div>
+              <div className="line">
+                <ChartLine userAverageSessions={userAverageSessions} />
+              </div>
+              <div className="radar">
+                <ChartRadar userPerformance={userPerformance} />
+              </div>
+              <div className="radial">
+                <ChartRadialBar userScore={userScore} />
+              </div>
+            </article>
+            <article className="articleTwo">
               <CardInfo
                 value={keyData?.calorieCount?.toString() + "kCal"}
                 kind="Calories"
                 icon={caloriesIcon}
               />
-            </div>
-            <div className="cardTwo">
               <CardInfo
                 value={keyData.proteinCount?.toString() + "g"}
                 kind="Protein"
                 icon={proteinIcon}
               />
-            </div>
-            <div className="cardThree">
               <CardInfo
                 value={keyData.carbohydrateCount?.toString() + "g"}
                 kind="Glucides"
                 icon={fatIcon}
               />
-            </div>
-            <div className="cardFour">
               <CardInfo
                 value={keyData.lipidCount?.toString() + "g"}
                 kind="Lipides"
                 icon={carbsIcon}
               />
-            </div>
-          </div>
+            </article>
+          </section>
         </section>
       )}
     </div>

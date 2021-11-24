@@ -1,15 +1,17 @@
 .cardinfo {
-  /* width: 16rem; */
-  height: 9rem;
   background: $color-3;
   border-radius: $border-radius;
-  padding: 1rem 2rem;
-  display: flex;
+  padding: 2rem;
+
+  @media screen and (min-width: map-get($breakpoints, desktop)) {
+    margin: 0;
+    padding: 2.5rem;
+  }
 
   &__content {
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
-    width: 100%;
 
     img {
       width: 80px;
