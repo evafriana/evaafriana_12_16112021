@@ -6,7 +6,6 @@ const transform = (data, type) => {
     case "chartline":
       const week = ["L", "M", "M", "J", "V", "S", "D"];
       data.data.sessions.map((d) => {
-        console.log(d);
         d.day = week[d.day - 1];
       });
       break;

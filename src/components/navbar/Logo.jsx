@@ -7,8 +7,8 @@ export default function Logo() {
     <div className="logo">
       <Link to="/">
         <img className="logo__navbar" src={logo} alt="logo" />
+        <h1 className="logo__text">SportSee</h1>
       </Link>
-      <h1 className="logo__text">SportSee</h1>
     </div>
   );
 }

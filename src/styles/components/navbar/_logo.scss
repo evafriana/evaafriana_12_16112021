@@ -1,6 +1,10 @@
 .logo {
-  display: flex;
-  align-items: center;
+  cursor: pointer;
+
+  a {
+    display: flex;
+    align-items: center;
+  }
 
   &__text {
     color: $color-1;

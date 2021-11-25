@@ -14,6 +14,8 @@ import caloriesIcon from "../assets/caloriesIcon.png";
 import proteinIcon from "../assets/proteinIcon.png";
 import fatIcon from "../assets/fatIcon.png";
 import carbsIcon from "../assets/carbsIcon.png";
+import Loader from "../components/Loader";
+import Error404 from "./Error404";
 
 export default function Home() {
   const [userName, setUserName] = useState("");
@@ -87,19 +89,12 @@ export default function Home() {
       <SideBar />
       <Navbar />
       {responseUser.loading ? (
-        <h2
-          style={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-          }}
-        >
-          loading...
-        </h2>
+        <Loader />
       ) : responseUser.error ? (
-        <div>{responseUser.error}</div>
+        // <div>{responseUser.error}</div>
+        <Error404 />
       ) : (
-        <section className="home__content">
+        <section className="home__content" id="animate-bottom">
           <div className="home__text">
             <h1>
               Bonjour <span className="surName">{userName}</span>
