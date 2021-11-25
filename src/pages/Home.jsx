@@ -39,16 +39,19 @@ export default function Home() {
   const responseActivity = useAxios({
     endpoint: `user/${id}/activity`,
     method: "get",
+    type: "chartbar",
   });
 
   const responseAverageSessions = useAxios({
     endpoint: `user/${id}/average-sessions`,
     method: "get",
+    type: "chartline",
   });
 
   const responsePerformance = useAxios({
     endpoint: `user/${id}/performance`,
     method: "get",
+    type: "chartradar",
   });
 
   useEffect(() => {

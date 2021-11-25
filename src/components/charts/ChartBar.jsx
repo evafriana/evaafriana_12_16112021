@@ -66,7 +66,7 @@ const ChartBar = (props) => {
               dy={15}
             />
             <YAxis
-              dataKey="kilogram"
+              dataKey="calories"
               yAxisId="left"
               orientation="right"
               tickLine={false}
@@ -92,7 +92,7 @@ const ChartBar = (props) => {
 };
 
 ChartBar.propTypes = {
-  /* userActivity: PropTypes.object, */
+  userActivity: PropTypes.array,
 };
 
 export default ChartBar;

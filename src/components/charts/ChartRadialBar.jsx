@@ -48,7 +48,7 @@ const ChartRadialBar = ({ userScore = 0 }) => {
 };
 
 ChartRadialBar.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.array,
   userScore: PropTypes.number,
 };
 

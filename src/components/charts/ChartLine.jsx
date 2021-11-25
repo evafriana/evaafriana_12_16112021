@@ -51,7 +51,7 @@ const ChartLine = (props) => {
 };
 
 ChartLine.propTypes = {
-  // userAverageSessions: PropTypes.number,
+  userAverageSessions: PropTypes.array,
 };
 
 export default ChartLine;
