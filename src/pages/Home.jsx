@@ -91,7 +91,6 @@ export default function Home() {
       {responseUser.loading ? (
         <Loader />
       ) : responseUser.error ? (
-        // <div>{responseUser.error}</div>
         <Error404 />
       ) : (
         <section className="home__content" id="animate-bottom">

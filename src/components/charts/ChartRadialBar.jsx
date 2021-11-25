@@ -12,6 +12,16 @@ const ChartRadialBar = ({ userScore = 0 }) => {
     { value: 1 - userScore },
   ];
 
+  const CustomLabel = () => {
+    return (
+      <text x="32%" y="57%">
+        <tspan fontSize="15" fill="#74798c">
+          {"de votre objective"}
+        </tspan>
+      </text>
+    );
+  };
+
   return (
     <div className="chartradialbar" width="100%" height="100%">
       <p>Score </p>
@@ -25,9 +35,7 @@ const ChartRadialBar = ({ userScore = 0 }) => {
             outerRadius={100}
             startAngle={90}
             endAngle={450}
-            fill="#8884d8"
             dataKey="value"
-            // label={renderCustomizedLabel}
           >
             {data.map((entry, index) => (
               <Cell
@@ -37,9 +45,10 @@ const ChartRadialBar = ({ userScore = 0 }) => {
               />
             ))}
 
-            <Label width={30} position="center">
-              {`${userScore * 100}% de votre objective`}
-            </Label>
+            <Label fontSize="40px" position="centerBottom">{`${
+              userScore * 100
+            }%`}</Label>
+            <Label content={<CustomLabel />}></Label>
           </Pie>
         </PieChart>
       </ResponsiveContainer>

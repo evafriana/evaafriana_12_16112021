@@ -16,7 +16,7 @@ const CustomTooltip = ({ active, payload }) => {
 const ChartLine = (props) => {
   return (
     <div className="chartline">
-      <p className="chartLine__text">Durée moyenne des sessions</p>
+      <p className="chartline__text">Durée moyenne des sessions</p>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={props.userAverageSessions}
