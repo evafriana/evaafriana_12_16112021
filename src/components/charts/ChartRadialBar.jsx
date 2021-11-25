@@ -1,5 +1,6 @@
 import React from "react";
 import { PieChart, Pie, ResponsiveContainer, Label, Cell } from "recharts";
+import PropTypes from "prop-types";
 
 const COLORS = ["#E60000", "#fff"];
 
@@ -26,7 +27,7 @@ const ChartRadialBar = ({ userScore = 0 }) => {
             endAngle={450}
             fill="#8884d8"
             dataKey="value"
-            textAnchor="tyt"
+            // label={renderCustomizedLabel}
           >
             {data.map((entry, index) => (
               <Cell
@@ -35,6 +36,7 @@ const ChartRadialBar = ({ userScore = 0 }) => {
                 cornerRadius="50%"
               />
             ))}
+
             <Label width={30} position="center">
               {`${userScore * 100}% de votre objective`}
             </Label>
@@ -43,6 +45,11 @@ const ChartRadialBar = ({ userScore = 0 }) => {
       </ResponsiveContainer>
     </div>
   );
+};
+
+ChartRadialBar.propTypes = {
+  data: PropTypes.array.isRequired,
+  userScore: PropTypes.number,
 };
 
 export default ChartRadialBar;

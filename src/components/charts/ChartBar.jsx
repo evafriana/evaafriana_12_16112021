@@ -10,6 +10,18 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
+const CustomTooltip = ({ active, payload }) => {
+  if (active) {
+    return (
+      <div className="custom-tooltip">
+        <p className="label">{`${payload[0].value} kg`}</p>
+        <p className="label">{`${payload[1].value} kCal`}</p>
+      </div>
+    );
+  }
+  return null;
+};
+
 const ChartBar = (props) => {
   return (
     <div className="chartbar">
@@ -69,19 +81,7 @@ const ChartBar = (props) => {
               tickLine={false}
               hide={true}
             />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: "#E60000",
-                border: "0",
-              }}
-              itemStyle={{ color: "#fff" }}
-              formatter={function (values) {
-                return `${values}`;
-              }}
-              labelFormatter={function () {
-                return ``;
-              }}
-            />
+            <Tooltip content={<CustomTooltip />} />
             <Bar dataKey="kilogram" fill="#282d30" radius={[50, 50, 0, 0]} />
             <Bar dataKey="calories" fill="#E60000" radius={[50, 50, 0, 0]} />
           </BarChart>
@@ -92,7 +92,7 @@ const ChartBar = (props) => {
 };
 
 ChartBar.propTypes = {
-  userActivity: PropTypes.array,
+  /* userActivity: PropTypes.object, */
 };
 
 export default ChartBar;

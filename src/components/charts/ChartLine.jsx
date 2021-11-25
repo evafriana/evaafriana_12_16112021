@@ -2,6 +2,17 @@ import React from "react";
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import PropTypes from "prop-types";
 
+const CustomTooltip = ({ active, payload }) => {
+  if (active) {
+    return (
+      <div className="custom-tooltip">
+        <p className="label">{`${payload[0].value} min`}</p>
+      </div>
+    );
+  }
+  return null;
+};
+
 const ChartLine = (props) => {
   return (
     <div className="chartline">
@@ -22,15 +33,7 @@ const ChartLine = (props) => {
             tickLine={false}
             stroke="#fbfbfb"
           />
-          <Tooltip
-            itemStyle={{ color: "#E60000" }}
-            formatter={function (value) {
-              return `${value} min`;
-            }}
-            labelFormatter={function (value) {
-              return ``;
-            }}
-          />
+          <Tooltip content={<CustomTooltip />} />
           <Line
             type="monotone"
             dataKey="sessionLength"
@@ -48,7 +51,7 @@ const ChartLine = (props) => {
 };
 
 ChartLine.propTypes = {
-  userActivity: PropTypes.object,
+  // userAverageSessions: PropTypes.number,
 };
 
 export default ChartLine;

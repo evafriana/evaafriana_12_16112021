@@ -53,4 +53,13 @@
       }
     }
   }
+
+  .custom-tooltip {
+    background: $color-1;
+    padding: 1rem;
+
+    .label {
+      color: $color-4;
+    }
+  }
 }
