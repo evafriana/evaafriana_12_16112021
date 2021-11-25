@@ -1,20 +1,14 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Home from "./pages/Home";
-import Error404 from "./pages/Error404";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/:id" exact element={<Home />} />
-        {/* the default route */}
-        <Route
-          exact
-          path="/"
-          render={() => <Navigate to="/12" element={<Home />} />}
-        />
-        {/* <Route element={<Error404 />} /> */}
+        <Route path="/:id" exact element={<Dashboard />} />
+        {/* It's gonna be Karl id by default */}
+        <Route path="/" exact element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

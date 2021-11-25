@@ -1,6 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/**
+ *
+ * @param {object} props
+ * @returns {object}
+ */
 const CardInfo = (props) => {
   return (
     <div className="cardinfo">

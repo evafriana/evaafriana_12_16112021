@@ -2,18 +2,24 @@ import React from "react";
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import PropTypes from "prop-types";
 
-const CustomTooltip = ({ active, payload }) => {
-  if (active) {
-    return (
-      <div className="custom-tooltip">
-        <p className="label">{`${payload[0].value} min`}</p>
-      </div>
-    );
-  }
-  return null;
-};
+/**
+ *
+ * @param {object} props
+ * @returns {object}
+ */
 
 const ChartLine = (props) => {
+  const CustomTooltip = ({ active, payload }) => {
+    if (active) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{`${payload[0].value} min`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="chartline">
       <p className="chartline__text">Durée moyenne des sessions</p>
@@ -32,6 +38,7 @@ const ChartLine = (props) => {
             axisLine={false}
             tickLine={false}
             stroke="#fbfbfb"
+            fontSize="14px"
           />
           <Tooltip content={<CustomTooltip />} />
           <Line

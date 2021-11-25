@@ -10,19 +10,25 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
-const CustomTooltip = ({ active, payload }) => {
-  if (active) {
-    return (
-      <div className="custom-tooltip">
-        <p className="label">{`${payload[0].value} kg`}</p>
-        <p className="label">{`${payload[1].value} kCal`}</p>
-      </div>
-    );
-  }
-  return null;
-};
+/**
+ *
+ * @param {object} props
+ * @returns {object}
+ */
 
 const ChartBar = (props) => {
+  const CustomTooltip = ({ active, payload }) => {
+    if (active) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{`${payload[0].value} kg`}</p>
+          <p className="label">{`${payload[1].value} kCal`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="chartbar">
       {

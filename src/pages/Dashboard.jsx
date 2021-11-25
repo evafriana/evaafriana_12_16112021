@@ -17,7 +17,7 @@ import carbsIcon from "../assets/carbsIcon.png";
 import Loader from "../components/Loader";
 import Error404 from "./Error404";
 
-export default function Home() {
+export default function Dashboard() {
   const [userName, setUserName] = useState("");
   const [keyData, setKeyData] = useState({
     calorieCount: 0,
@@ -31,7 +31,8 @@ export default function Home() {
   const [userAverageSessions, setUserAverageSessions] = useState("");
   const [userPerformance, setUserPerformance] = useState("");
 
-  let { id } = useParams();
+  // Karl by default
+  let { id = 12 } = useParams();
 
   const responseUser = useAxios({
     endpoint: `user/${id}`,

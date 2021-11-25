@@ -8,6 +8,12 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ *
+ * @param {object} props
+ * @returns {object}
+ */
+
 const ChartRadar = (props) => {
   const { userPerformance } = props;
 

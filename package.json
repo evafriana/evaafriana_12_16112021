@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "jsdoc": "^3.6.7",
     "sass": "^1.43.4"
   }
 }

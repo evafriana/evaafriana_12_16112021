@@ -6,12 +6,12 @@ const transform = (data, type) => {
     case "chartline":
       const week = ["L", "M", "M", "J", "V", "S", "D"];
       data.data.sessions.map((d) => {
-        d.day = week[d.day - 1];
+        return (d.day = week[d.day - 1]);
       });
       break;
     case "chartbar":
       data.data.sessions.map((d) => {
-        d.day = d.day.substr(-1);
+        return (d.day = d.day.substr(-1));
       });
       break;
     case "chartradar":
@@ -21,11 +21,11 @@ const transform = (data, type) => {
         "Vitesse",
         "Force",
         "Endurance",
-        "Energi",
+        "Energie",
         "Cardio",
       ];
       Object.keys(kind).map((key) => {
-        kind[key] = kindFr;
+        return (kind[key] = kindFr);
       });
       break;
     default:
@@ -60,7 +60,7 @@ const useAxios = ({
       .finally(() => {
         setloading(false);
       });
-  }, [method, url, headers, body]);
+  }, [method, url, headers, body, type]);
 
   useEffect(() => {
     fetchData();
