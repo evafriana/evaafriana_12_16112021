@@ -3,8 +3,11 @@ import PropTypes from "prop-types";
 
 /**
  *
- * @param {object} props
- * @returns {object}
+ * @param {Object} props Data of user info
+ * @property {string} icon - icon
+ * @property {string} value - value of keydata
+ * @property {string} kind - key of keydata
+ * @returns {JSX.Element}
  */
 const CardInfo = (props) => {
   return (
@@ -20,7 +23,11 @@ const CardInfo = (props) => {
   );
 };
 
+/**
+ * CardInfo component props
+ */
 CardInfo.propTypes = {
+  icon: PropTypes.string,
   value: PropTypes.string,
   kind: PropTypes.string,
 };

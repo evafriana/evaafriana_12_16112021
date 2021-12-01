@@ -2,9 +2,24 @@ import React from "react";
 import { PieChart, Pie, ResponsiveContainer, Label, Cell } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * @type {string}
+ */
 const COLORS = ["#E60000", "#fff"];
 
-const ChartRadialBar = ({ userScore = 0 }) => {
+/**
+ *
+ * @param {Object} props Data of user info today score
+ * @property {Array} data - data
+ * @returns {JSX.Element}
+ *
+ */
+const ChartRadialBar = (props) => {
+  const { userScore = 0 } = props;
+
+  /**
+   * @type {array<Object>}
+   */
   const data = [
     {
       value: userScore,
@@ -12,6 +27,11 @@ const ChartRadialBar = ({ userScore = 0 }) => {
     { value: 1 - userScore },
   ];
 
+  /**
+   *
+   * See {@link https://github.com/recharts/recharts/issues/160}
+   * @returns {JSX.Element}
+   */
   const CustomLabel = () => {
     return (
       <text x="32%" y="57%">
@@ -56,6 +76,9 @@ const ChartRadialBar = ({ userScore = 0 }) => {
   );
 };
 
+/**
+ * ChartRadar component props
+ */
 ChartRadialBar.propTypes = {
   data: PropTypes.array,
   userScore: PropTypes.number,

@@ -4,11 +4,17 @@ import PropTypes from "prop-types";
 
 /**
  *
- * @param {object} props
- * @returns {object}
+ * @param {Object} props Data of user average-sessions
+ * @property {Array} userAverageSessions - day and session length
+ * @returns {JSX.Element}
  */
 
 const ChartLine = (props) => {
+  /**
+   *
+   * See {@link https://recharts.org/en-US/examples/CustomContentOfTooltip}
+   * @returns {JSX.Element}
+   */
   const CustomTooltip = ({ active, payload }) => {
     if (active) {
       return (
@@ -57,6 +63,9 @@ const ChartLine = (props) => {
   );
 };
 
+/**
+ * CharLine component props
+ */
 ChartLine.propTypes = {
   userAverageSessions: PropTypes.array,
 };

@@ -10,8 +10,9 @@ import PropTypes from "prop-types";
 
 /**
  *
- * @param {object} props
- * @returns {object}
+ * @param {Object} props Data of user performance
+ * @property {Array} data - data
+ * @returns {JSX.Element}
  */
 
 const ChartRadar = (props) => {
@@ -44,6 +45,9 @@ const ChartRadar = (props) => {
   );
 };
 
+/**
+ * ChartRadar component props
+ */
 ChartRadar.propTypes = {
   data: PropTypes.array,
 };
