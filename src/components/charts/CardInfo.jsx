@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 /**
- *
+ * Create user infos
  * @param {Object} props Data of user info
  * @property {string} icon - icon
  * @property {string} value - value of keydata

@@ -9,6 +9,7 @@ const COLORS = ["#E60000", "#fff"];
 
 /**
  *
+ * Generate user's performances chart
  * @param {Object} props Data of user info today score
  * @property {Array} data - data
  * @returns {JSX.Element}
@@ -29,6 +30,7 @@ const ChartRadialBar = (props) => {
 
   /**
    *
+   * Create label to display score informations
    * See {@link https://github.com/recharts/recharts/issues/160}
    * @returns {JSX.Element}
    */

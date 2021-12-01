@@ -3,15 +3,16 @@ import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import PropTypes from "prop-types";
 
 /**
- *
+ * Generate user's average sessions chart
  * @param {Object} props Data of user average-sessions
- * @property {Array} userAverageSessions - day and session length
+ * @property {Array} userAverageSessions - Day and session length
  * @returns {JSX.Element}
  */
 
 const ChartLine = (props) => {
   /**
    *
+   * Create tooltip to display curve informations
    * See {@link https://recharts.org/en-US/examples/CustomContentOfTooltip}
    * @returns {JSX.Element}
    */

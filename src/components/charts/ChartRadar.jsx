@@ -10,14 +10,15 @@ import PropTypes from "prop-types";
 
 /**
  *
+ * Generate user's performances chart
  * @param {Object} props Data of user performance
  * @property {Array} data - data
  * @returns {JSX.Element}
  */
-
 const ChartRadar = (props) => {
   const { userPerformance } = props;
 
+  // transform data to an array of oject
   const data = userPerformance?.data.reduce((accumulateur, { value, kind }) => {
     const res = {
       subject: userPerformance.kind[kind],

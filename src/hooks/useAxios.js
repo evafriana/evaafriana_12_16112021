@@ -3,7 +3,7 @@ import axios from "axios";
 
 /**
  *
- * transform data according to chart type
+ * Transform data according to chart type
  * @param {Object} data Row data from API
  * @param {string} type Chart type
  * @returns {Object} Data
@@ -43,6 +43,7 @@ const transform = (data, type) => {
 
 /**
  *
+ * Custom hook to call API
  * @param {Object} props
  * @property {string} baseUrl - API Url
  * @property {string} endpoint - Endpoint

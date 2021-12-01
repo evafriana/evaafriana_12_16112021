@@ -12,6 +12,7 @@ import PropTypes from "prop-types";
 
 /**
  *
+ * Create user daily activity chart
  * @param {Object} props Data of user activity
  * @property {Array} userActivity - day, kilogram, calories
  * @returns {JSX.Element}
@@ -19,6 +20,7 @@ import PropTypes from "prop-types";
 const ChartBar = (props) => {
   /**
    *
+   * Create tooltip to display curve informations
    * See {@link https://recharts.org/en-US/examples/CustomContentOfTooltip}
    * @returns {JSX.Element}
    */
