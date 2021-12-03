@@ -1,4 +1,5 @@
 import axios from "axios";
+import { mockedData } from "./mockData";
 
 // Js class to call API
 class API {
@@ -10,8 +11,6 @@ class API {
     this.userId = userId;
     this.instance = axios.create({
       baseURL: "http://localhost:3000/",
-      timeout: 1000,
-      headers: {},
     });
   }
 
@@ -23,9 +22,18 @@ class API {
   async get(option) {
     const optionsList = ["activity", "average-sessions", "performance"];
 
-    return this.instance
-      .get(`/user/${this.userId}/${optionsList.includes(option) ? option : ""}`)
-      .then((res) => res.data);
+    if (this.userId) {
+      return this.instance
+        .get(
+          `/user/${this.userId}/${optionsList.includes(option) ? option : ""}`
+        )
+        .then((res) => res.data);
+    } else {
+      // Karl from mocked data by default
+      return optionsList.includes(option)
+        ? mockedData[option]
+        : mockedData.user;
+    }
   }
 
   /**

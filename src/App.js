@@ -7,7 +7,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/:id" exact element={<Dashboard />} />
-        {/* It's gonna be Karl id by default */}
+        {/* It's gonna be Karl from mocked data by default */}
         <Route path="/" exact element={<Dashboard />} />
       </Routes>
     </BrowserRouter>

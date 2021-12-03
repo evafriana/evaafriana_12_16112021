@@ -30,8 +30,7 @@ export default function Dashboard() {
     lipidCount: 0,
   });
 
-  // Karl by default
-  let { id = "12" } = useParams();
+  let { id } = useParams();
 
   const apiCall = useMemo(() => new API(id), [id]);
 

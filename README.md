@@ -44,7 +44,7 @@
    `npm start`
 4. Front-end is now rendered at URL `http://localhost:3001`
 5. URL by default:  
-   `http://localhost:3001/user/12`
+   `http://localhost:3001`
 6. URL availables :  
    `http://localhost:3001/user/12`  
    `http://localhost:3001/user/18`
