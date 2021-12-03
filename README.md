@@ -1,12 +1,10 @@
-![SportSee](./src/assets/logo.png)
-
 # Develop an analytics Dashboard with React
 
 ## Auteur
 
 - [Eva AFRIANA](https://github.com/evafriana)
 
-## Prerequisites for install
+## Prerequisites
 
 - You need [Git](https://git-scm.com) to clone the repository
 - You need [Node](https://nodejs.org/en/) (v15.12.0) to run the npm commands
