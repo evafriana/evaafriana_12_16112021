@@ -102,7 +102,7 @@ class API {
 
   /**
    * Get user's score
-   * @returns {number}
+   * @returns {float|number}
    */
   async getScore() {
     const json = await this.get();
