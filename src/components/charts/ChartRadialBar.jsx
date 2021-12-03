@@ -30,13 +30,13 @@ const ChartRadialBar = (props) => {
 
   /**
    *
-   * Create label to display score informations
+   * Create label to display curve informations
    * See {@link https://github.com/recharts/recharts/issues/160}
    * @returns {JSX.Element}
    */
   const CustomLabel = () => {
     return (
-      <text x="32%" y="57%">
+      <text x="33%" y="57%">
         <tspan fontSize="15" fill="#74798c">
           {"de votre objective"}
         </tspan>

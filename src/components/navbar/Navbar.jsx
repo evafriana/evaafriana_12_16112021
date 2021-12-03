@@ -11,7 +11,7 @@ export default function Navbar() {
           Accueil
         </NavLink>
         <NavLink to="/" onClick={(e) => e.preventDefault()}>
-          profil
+          Profil
         </NavLink>
         <NavLink to="/" onClick={(e) => e.preventDefault()}>
           Réglage

@@ -21,10 +21,10 @@ const ChartRadar = (props) => {
   // transform data to an array of oject
   const data = userPerformance?.data.reduce((accumulateur, { value, kind }) => {
     const res = {
-      subject: userPerformance.kind[kind],
+      subject: userPerformance?.kind[kind],
       value,
     };
-    accumulateur.push(res);
+    accumulateur.unshift(res);
     return accumulateur;
   }, []);
 

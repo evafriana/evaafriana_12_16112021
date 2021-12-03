@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import ChartBar from "../components/charts/ChartBar";
 import ChartLine from "../components/charts/ChartLine";
@@ -8,96 +8,57 @@ import ChartRadialBar from "../components/charts/ChartRadialBar";
 import CardInfo from "../components/charts/CardInfo";
 import Navbar from "../components/navbar/Navbar";
 import SideBar from "../components/sidebar/SideBar";
-import useAxios from "../hooks/useAxios";
 
 import caloriesIcon from "../assets/caloriesIcon.png";
 import proteinIcon from "../assets/proteinIcon.png";
 import fatIcon from "../assets/fatIcon.png";
 import carbsIcon from "../assets/carbsIcon.png";
-import Loader from "../components/Loader";
+import API from "./../utils/api.js";
 import Error404 from "./Error404";
 
 export default function Dashboard() {
-  const [userName, setUserName] = useState("");
+  const [error, setError] = useState(false);
+  const [userData, setUserData] = useState({ firstName: "" });
+  const [userActivity, setUserActivity] = useState();
+  const [userAverageSessions, setUserAverageSessions] = useState();
+  const [userPerformance, setUserPerformance] = useState();
+  const [userScore, setUserScore] = useState();
   const [keyData, setKeyData] = useState({
     calorieCount: 0,
     proteinCount: 0,
     carbohydrateCount: 0,
     lipidCount: 0,
   });
-  const [userScore, setUserScore] = useState("");
-
-  const [userActivity, setUserActivity] = useState("");
-  const [userAverageSessions, setUserAverageSessions] = useState("");
-  const [userPerformance, setUserPerformance] = useState("");
 
   // Karl by default
-  let { id = 12 } = useParams();
+  let { id = "12" } = useParams();
 
-  const responseUser = useAxios({
-    endpoint: `user/${id}`,
-    method: "get",
-  });
-
-  const responseActivity = useAxios({
-    endpoint: `user/${id}/activity`,
-    method: "get",
-    type: "chartbar",
-  });
-
-  const responseAverageSessions = useAxios({
-    endpoint: `user/${id}/average-sessions`,
-    method: "get",
-    type: "chartline",
-  });
-
-  const responsePerformance = useAxios({
-    endpoint: `user/${id}/performance`,
-    method: "get",
-    type: "chartradar",
-  });
+  const apiCall = useMemo(() => new API(id), [id]);
 
   useEffect(() => {
-    const res = responseUser?.response?.data;
-
-    const name = res?.userInfos?.firstName;
-    setUserName(name);
-
-    const keyData = res?.keyData;
-    setKeyData(keyData);
-
-    const score = res?.score || res?.todayScore;
-    setUserScore(score);
-  }, [responseUser]);
-
-  useEffect(() => {
-    const sessions = responseActivity?.response?.data?.sessions;
-    setUserActivity(sessions);
-  }, [responseActivity]);
-
-  useEffect(() => {
-    const averageSessions = responseAverageSessions?.response?.data?.sessions;
-    setUserAverageSessions(averageSessions);
-  }, [responseAverageSessions]);
-
-  useEffect(() => {
-    const performance = responsePerformance?.response?.data;
-    setUserPerformance(performance);
-  }, [responsePerformance]);
+    setError(false);
+    apiCall
+      .getUser()
+      .then((res) => setUserData(res))
+      .catch(() => setError(true));
+    apiCall.getActivity().then((res) => setUserActivity(res));
+    apiCall.getAverageSessions().then((res) => setUserAverageSessions(res));
+    apiCall.getPerformance().then((res) => setUserPerformance(res));
+    apiCall.getScore().then((res) => setUserScore(res));
+    apiCall.getKeyData().then((res) => setKeyData(res));
+  }, [apiCall]);
 
   return (
     <div className="home">
       <SideBar />
       <Navbar />
-      {responseUser.loading ? (
-        <Loader />
-      ) : responseUser.error ? (
+      {error ? (
         <Error404 />
       ) : (
         <section className="home__content" id="animate-bottom">
           <div className="home__text">
             <h1>
-              Bonjour <span className="surName">{userName}</span>
+              Bonjour <span className="surName">{userData.firstName}</span>
             </h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           </div>
