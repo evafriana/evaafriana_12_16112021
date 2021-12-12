@@ -29,6 +29,7 @@ const ChartBar = (props) => {
       return (
         <div className="custom-tooltip">
           <p className="label">{`${payload[0]?.value} kg`}</p>
+          <br />
           <p className="label">{`${payload[1]?.value} kCal`}</p>
         </div>
       );

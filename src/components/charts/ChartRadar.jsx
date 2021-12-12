@@ -28,6 +28,8 @@ const ChartRadar = (props) => {
     return accumulateur;
   }, []);
 
+  if (!userPerformance) return null;
+
   return (
     <div className="chartradar">
       <ResponsiveContainer width="100%" height="100%">
