@@ -106,7 +106,7 @@ class API {
    */
   async getScore() {
     const json = await this.get();
-    return json.data.todayScore;
+    return json.data.todayScore || json.data.score;
   }
 
   /**

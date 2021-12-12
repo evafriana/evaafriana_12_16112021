@@ -30,21 +30,23 @@ export default function Dashboard() {
     lipidCount: 0,
   });
 
-  let { id } = useParams();
+  const { id } = useParams();
 
   const apiCall = useMemo(() => new API(id), [id]);
 
   useEffect(() => {
     setError(false);
-    apiCall
-      .getUser()
-      .then((res) => setUserData(res))
-      .catch(() => setError(true));
-    apiCall.getActivity().then((res) => setUserActivity(res));
-    apiCall.getAverageSessions().then((res) => setUserAverageSessions(res));
-    apiCall.getPerformance().then((res) => setUserPerformance(res));
-    apiCall.getScore().then((res) => setUserScore(res));
-    apiCall.getKeyData().then((res) => setKeyData(res));
+    if (apiCall) {
+      apiCall
+        .getUser()
+        .then((res) => setUserData(res))
+        .catch(() => setError(true));
+      apiCall.getActivity().then((res) => setUserActivity(res));
+      apiCall.getAverageSessions().then((res) => setUserAverageSessions(res));
+      apiCall.getPerformance().then((res) => setUserPerformance(res));
+      apiCall.getScore().then((res) => setUserScore(res));
+      apiCall.getKeyData().then((res) => setKeyData(res));
+    }
   }, [apiCall]);
 
   return (
